@@ -3,7 +3,14 @@
 {% block body %}
     <div id="wrapper">
         <div id="container">
-            <h1>Add batery</h1>
+        <h1>Add batery</h1>
+            {{ form_start(form) }}
+                {{ form_errors(form) }}
+
+                {{ form_row(form.type) }}
+                {{ form_row(form.count) }}
+                {{ form_row(form.name) }}
+            {{ form_end(form) }}
         </div>
     </div>
 {% endblock %}
