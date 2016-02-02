@@ -3,10 +3,12 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="battery")
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\BatteryRepository")
  */
 class Battery
 {
@@ -18,17 +20,19 @@ class Battery
     protected $id;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="string", length=10)
      */
     protected $type;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="integer")
      */
     protected $count;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=100, nullable=true)
      */
     protected $name;
 

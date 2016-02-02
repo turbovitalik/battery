@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form\Type;
 
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -13,7 +14,7 @@ class BatteryType extends AbstractType
         $builder
             ->add('type')
             ->add('count')
-            ->add('name')
+            ->add('name', TextType::class, ['required' => false])
             ->add('save', SubmitType::class)
         ;
     }

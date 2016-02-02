@@ -3,6 +3,16 @@
 {% block body %}
     <div id="wrapper">
         <div id="container">
+            <div class="statistics">
+                <table>
+                    {% for row in statistics %}
+                        <tr>
+                            <td>{{ row.type }}</td>
+                            <td data-type="{{ row.type }}">{{ row.total }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
             <a href="{{ url('add_battery') }}">Add batteries</a>
         </div>
     </div>
