@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+            <h1>Welcome to Recycle Batteries application</h1>
+            <p>Click <a href="{{ url('add_battery') }}">here</a> to add new batteries to the box</p>
+            <div class="statistics">
+                {% if statistics|length > 0 %}
+                    <p>Statistics</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Battery type</th>
+                                <th>Total count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for row in statistics %}
+                            <tr>
+                                <td>{{ row.type }}</td>
+                                <td data-type="{{ row.type }}">{{ row.total }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>The battery box is empty</p>
+                {% endif %}
+            </div>
+            {% if statistics|length > 0 %}
+                <button onclick="location.href='{{ path('remove_all') }}'">Remove All Data</button>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

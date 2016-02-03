@@ -17,8 +17,9 @@ class BatteryRepository extends EntityRepository
 
     public function deleteAll()
     {
-        return $this->getEntityManager()
-            ->createQuery("DELETE FROM " . $this->getClassName())
-            ->execute();
+        return $this->createQueryBuilder('b')
+            ->delete()
+            ->getQuery()
+            ->getResult();
     }
 }
